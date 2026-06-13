@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weight Converter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+    <h1>Weight Converter</h1>
+    <nav>
+    <a href="/length">Length</a> |
+    <a href="/weight">Weight</a> |
+    <a href="/temperature">Temperature</a>
+</nav>
+
+    <form method="POST" action="/weight">
+        <label>Enter the weight to convert:</label>
+        <input type="number" name="value" required>
+
+        <div>
+                    <label>Unit to convert from:</label>
+        <select name="from_unit">
+            <option value="mg">Milligram</option>
+            <option value="g">Gram</option>
+            <option value="kg">Kilogram</option>
+            <option value="oz">Ounce</option>
+            <option value="lb">Pound</option>
+        </select>
+
+        </div>
+        <div>
+            <label>Unit to convert to:</label>
+        <select name="to_unit">
+            <option value="mg">Milligram</option>
+            <option value="g">Gram</option>
+            <option value="kg">Kilogram</option>
+            <option value="oz">Ounce</option>
+            <option value="lb">Pound</option>
+        </select>
+        </div>
+
+        <button type="submit">Convert</button>
+    </form>
+        {% if result %}
+        <div class="result">
+            <h2>{{ result }}</h2>
+        </div>
+        {% endif %}
+
+</div>
+</body>
+</html>
